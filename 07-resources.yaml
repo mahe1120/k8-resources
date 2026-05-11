@@ -16,4 +16,4 @@ spec:
         memory: "120Mi"
         cpu: "150m"
 
-      # limits > = requests.
+      # Always limits > = requests.
