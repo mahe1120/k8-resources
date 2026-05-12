@@ -8,4 +8,4 @@ spec:
     image: nginx
     envFrom:
     - configMapRef:
-        name: myconfig
+        name: myconfig # Reference value is from 08-config-map.yaml file
