@@ -9,7 +9,7 @@ metadata:
 spec:
   replicas: 3
   selector:
-    matchlabels:
+    matchLabels:
       app: nginx
       tier: frontend
       purpose: deployment
