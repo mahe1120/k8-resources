@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx
+  name: nginx-deployment
   # labels of deployment resource
   labels:
     app: nginx
@@ -30,7 +30,7 @@ spec:
 kind: Service
 apiVersion: v1
 metadata:
-  name: nginx
+  name: nginx-lb
 spec:
   type: LoadBalancer
   selector: # labels are used as selectors
