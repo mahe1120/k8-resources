@@ -1,0 +1,47 @@
+kind: Deployment
+apiVersion: app/v1
+metadata:
+  name: nginx-deployment
+  labels:
+    app: nginx
+    tier: frontend
+    purpose: deployment
+spec:
+  replicas: 3
+  selector:
+    matchlabels:
+      environment: dev
+      component: frontend
+      project: expense
+  template:
+    metadata:
+      labels:
+        app: nginx
+        tier: frontend
+        purpose: deployment
+    spec:
+      containers:
+      - name: nginix
+        image: mahe1120/deployment:1.0.0
+        ports:
+        - containerPort: 80
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: nginx-lb
+spec:
+  type: LoadBalancer
+  selector:
+    app: nginx
+    tier: frontend
+    purpose: deployment
+  ports:
+  - protocol: TCP
+    port: 80  # service port
+    targetPort: 80
+    nodePort: 30007
+
+
+
+
